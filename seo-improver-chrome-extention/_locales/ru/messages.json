@@ -4,7 +4,7 @@
     "description": "Название расширения"
   },
   "extensionDescription": {
-    "message": "Создаёт чёткие и структурированные описания компонентов компьютера",
+    "message": "Делат из информации на странице креативный контент",
     "description": "Описание расширения"
   },
   "contextMenuTitle": {
@@ -51,7 +51,7 @@
   },
   "price": {
     "message": "Цена",
-    "description": "Цена сборки"
+    "description": "Итоговая цена сборки"
   },
   "totalPriceLabel": {
     "message": "Итоговая цена:",
