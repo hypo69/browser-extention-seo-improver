@@ -1,0 +1,83 @@
+{
+  "manifest_version": 3,
+  "name": "Locator Editor Pro",
+  "version": "2.0.0",
+  "description": "Профессиональный редактор локаторов для веб-тестирования с облачной синхронизацией и AI",
+  "default_locale": "en",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting",
+    "storage",
+    "identity",
+    "notifications",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://srv378106.hstgr.cloud/*",
+    "https://accounts.google.com/*",
+    "https://www.googleapis.com/*",
+    "https://api.openai.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://aiplatform.googleapis.com/*",
+    "https://api-inference.huggingface.co/*",
+    "https://api.anthropic.com/*"
+  ],
+  "oauth2": {
+    "client_id": "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Locator Editor Pro"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "<all_urls>" ],
+      "js": [
+        "utils/logger.js",
+        "config/ai-config.js",
+        "providers/base-provider.js",
+        "providers/openai-provider.js",
+        "providers/gemini-provider.js",
+        "providers/huggingface-provider.js",
+        "providers/anthropic-provider.js",
+        "ai-provider.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "_locales/*/price_offer_prompt.txt",
+        "_locales/*/locator_generation_prompt.txt",
+        "icons/*"
+      ],
+      "matches": [ "<all_urls>" ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://api.openai.com https://generativelanguage.googleapis.com https://aiplatform.googleapis.com https://api-inference.huggingface.co https://api.anthropic.com https://srv378106.hstgr.cloud;"
+  }
+}

@@ -1,34 +1,34 @@
 {
   "extensionName": {
-    "message": "SEOai",
+    "message": "Пропозиція ціни Казарінов",
     "description": "Назва розширення"
   },
   "extensionDescription": {
-    "message": "Створювати креативний контент з інформації на сторінці",
+    "message": "Створює чіткі та структуровані описи комп’ютерних компонентів",
     "description": "Опис розширення"
   },
   "contextMenuTitle": {
-    "message": "Сформувати цінову пропозицію",
+    "message": "Створити пропозицію ціни",
     "description": "Назва пункту контекстного меню"
   },
   "apiKeyLabel": {
     "message": "API-ключ Google Gemini",
-    "description": "Підпис для поля введення API-ключа"
+    "description": "Мітка поля для введення ключа API"
   },
   "modelLabel": {
     "message": "Модель",
-    "description": "Підпис для вибору моделі"
+    "description": "Мітка для вибору моделі"
   },
   "saveButton": {
     "message": "Зберегти",
     "description": "Текст кнопки збереження"
   },
   "statusNoApiKey": {
-    "message": "Будь ласка, введіть ваш ключ API",
-    "description": "Повідомлення, коли API-ключ не введено"
+    "message": "Будь ласка, введіть ваш API-ключ",
+    "description": "Повідомлення про стан, коли API-ключ не введено"
   },
   "indicatorAnalyzing": {
-    "message": "Формується ваша цінова пропозиція…",
+    "message": "Створюється ваша пропозиція ціни…",
     "description": "Повідомлення під час аналізу"
   },
   "errorFetchContent": {
@@ -36,33 +36,17 @@
     "description": "Помилка при отриманні вмісту сторінки"
   },
   "errorPageTooShort": {
-    "message": "Сторінка містить занадто мало контенту",
+    "message": "Сторінка містить недостатньо контенту",
     "description": "Помилка, коли сторінка занадто коротка"
   },
   "errorApi": {
     "message": "Помилка API: $error$",
-    "description": "Загальне повідомлення про помилку API",
+    "description": "Загальна помилка API",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "Невірний API-ключ"
       }
     }
-  },
-  "price": {
-    "message": "Ціна",
-    "description": "Ціна збірки"
-  },
-  "totalPriceLabel": {
-    "message": "Загальна ціна:",
-    "description": "Підпис для загальної ціни в пропозиції"
-  },
-  "saveOfferButton": {
-    "message": "Зберегти пропозицію",
-    "description": "Текст кнопки 'Зберегти пропозицію'"
-  },
-  "changeImageButton": {
-    "message": "Змінити зображення",
-    "description": "Текст кнопки 'Змінити зображення' у футері"
   }
 }

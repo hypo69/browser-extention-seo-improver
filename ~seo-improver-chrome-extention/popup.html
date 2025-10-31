@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locator Editor - Вход</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <!-- Экран загрузки -->
+    <div id="loadingScreen" class="screen">
+        <div class="loader"></div>
+        <p>Проверка авторизации...</p>
+    </div>
+
+    <!-- Экран входа/регистрации -->
+    <div id="authScreen" class="screen hidden">
+        <div class="header">
+            <h1>⚙️ Locator Editor</h1>
+            <p class="subtitle">Редактор локаторов для тестирования</p>
+        </div>
+
+        <!-- Табы -->
+        <div class="tabs">
+            <button class="tab active" data-tab="login">Вход</button>
+            <button class="tab" data-tab="register">Регистрация</button>
+        </div>
+
+        <!-- Форма входа -->
+        <div id="loginForm" class="form-container active">
+            <form id="loginFormElement">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="ваш@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+
+            <div class="divider">
+                <span>или</span>
+            </div>
+
+            <button id="googleSignInBtn" class="btn btn-google">
+                <img src="google-icon.svg" alt="Google" width="18" height="18">
+                Войти через Google
+            </button>
+        </div>
+
+        <!-- Форма регистрации -->
+        <div id="registerForm" class="form-container">
+            <form id="registerFormElement">
+                <div class="form-group">
+                    <label for="registerName">Имя</label>
+                    <input type="text" id="registerName" placeholder="Иван Петров" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" placeholder="ваш@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Пароль</label>
+                    <input type="password" id="registerPassword" placeholder="••••••••" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPasswordConfirm">Подтвердите пароль</label>
+                    <input type="password" id="registerPasswordConfirm" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+            </form>
+
+            <div class="divider">
+                <span>или</span>
+            </div>
+
+            <button id="googleSignUpBtn" class="btn btn-google">
+                <img src="google-icon.svg" alt="Google" width="18" height="18">
+                Регистрация через Google
+            </button>
+        </div>
+
+        <!-- Алерты -->
+        <div id="alertContainer"></div>
+    </div>
+
+    <!-- Экран авторизованного пользователя -->
+    <div id="dashboardScreen" class="screen hidden">
+        <div class="header">
+            <h1>⚙️ Locator Editor</h1>
+            <button id="logoutBtn" class="btn-icon" title="Выход">🚪</button>
+        </div>
+
+        <div class="user-info">
+            <div class="user-avatar">
+                <span id="userInitials">UN</span>
+            </div>
+            <div class="user-details">
+                <p class="user-name" id="userName">User Name</p>
+                <p class="user-email" id="userEmail">user@example.com</p>
+            </div>
+        </div>
+
+        <div class="balance-card">
+            <div class="balance-label">Доступно токенов</div>
+            <div class="balance-value" id="tokensBalance">0</div>
+            <button id="refreshBalanceBtn" class="btn-small">🔄 Обновить</button>
+        </div>
+
+        <div class="actions">
+            <button id="openEditorBtn" class="btn btn-primary">
+                ✏️ Открыть редактор
+            </button>
+            <button id="viewApiKeyBtn" class="btn btn-secondary">
+                🔑 API ключ
+            </button>
+        </div>
+
+        <div class="footer">
+            <a href="#" id="docsLink">📚 Документация</a>
+            <a href="#" id="supportLink">💬 Поддержка</a>
+        </div>
+    </div>
+
+    <!-- Модальное окно с API ключом -->
+    <div id="apiKeyModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🔑 Ваш API ключ</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="api-key-warning">⚠️ Не делитесь этим ключом с другими!</p>
+                <div class="api-key-display" id="apiKeyDisplay">
+                    bcm_••••••••••••••••••••••••
+                </div>
+                <button id="copyApiKeyBtn" class="btn btn-small">📋 Копировать</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

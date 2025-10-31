@@ -1,68 +1,68 @@
 {
   "extensionName": {
-    "message": "SEOai",
-    "description": "שם התוסף"
+    "message": "מחולל הצעות מחיר קזרינוב",
+    "description": "Название расширения"
   },
   "extensionDescription": {
-    "message": "יוצר תיאורים ברורים ומובנים של רכיבי מחשב",
-    "description": "תיאור התוסף"
+    "message": "יוצר תיאורים מובנים וברורים של רכיבי מחשב",
+    "description": "Описание расширения"
   },
   "contextMenuTitle": {
     "message": "צור הצעת מחיר",
-    "description": "שם פריט תפריט ההקשר"
+    "description": "Название пункта контекстного меню"
   },
   "apiKeyLabel": {
     "message": "מפתח API של Google Gemini",
-    "description": "תווית עבור שדה קלט מפתח API"
+    "description": "Подпись для поля ввода API-ключа"
   },
   "modelLabel": {
     "message": "מודל",
-    "description": "תווית לבחירת מודל"
+    "description": "Подпись для выбора модели"
   },
   "saveButton": {
     "message": "שמור",
-    "description": "טקסט כפתור שמירה"
+    "description": "Текст кнопки сохранения"
   },
   "statusNoApiKey": {
     "message": "אנא הזן את מפתח ה-API שלך",
-    "description": "הודעה כאשר מפתח ה-API לא הוזן"
+    "description": "Сообщение, когда API-ключ не введён"
   },
   "indicatorAnalyzing": {
-    "message": "הצעת המחיר שלך נוצרת…",
-    "description": "הודעה במהלך ניתוח"
+    "message": "הצעת המחיר שלך נוצרת...",
+    "description": "Сообщение во время анализа"
   },
   "errorFetchContent": {
-    "message": "לא ניתן היה לאחזר את תוכן הדף",
-    "description": "שגיאה באחזור תוכן הדף"
+    "message": "לא ניתן היה לקבל את תוכן העמוד",
+    "description": "Ошибка при получении содержимого страницы"
   },
   "errorPageTooShort": {
-    "message": "הדף מכיל מעט מדי תוכן",
-    "description": "שגיאה כאשר הדף קצר מדי"
+    "message": "העמוד מכיל מעט מדי תוכן",
+    "description": "Ошибка, когда страница слишком короткая"
   },
   "errorApi": {
     "message": "שגיאת API: $error$",
-    "description": "הודעת שגיאת API כללית",
+    "description": "Общее сообщение об ошибке API",
     "placeholders": {
       "error": {
         "content": "$1",
-        "example": "מפתח API לא חוקי"
+        "example": "מפתח API שגוי"
       }
     }
   },
   "price": {
-    "message": "מחיר",
-    "description": "מחיר ההרכבה"
+    "message": "עלות",
+    "description": "Цена сборки"
   },
   "totalPriceLabel": {
     "message": "מחיר סופי:",
-    "description": "תווית למחיר הסופי בהצעה"
+    "description": "Подпись для итоговой цены в предложении"
   },
   "saveOfferButton": {
     "message": "שמור הצעה",
-    "description": "טקסט כפתור 'שמור הצעה'"
+    "description": "Текст кнопки 'Сохранить предложение'"
   },
   "changeImageButton": {
     "message": "שנה תמונה",
-    "description": "טקסט כפתור 'שנה תמונה' בכותרת התחתונה"
+    "description": "Текст кнопки 'Изменить картинку' в футере"
   }
 }

@@ -1,168 +1,68 @@
 {
-  "appName": {
-    "message": "Редактор Локаторов",
-    "description": "The name of the extension."
+  "extensionName": {
+    "message": "Предложение цены Казаринов",
+    "description": "Название расширения"
   },
-  "appDescription": {
-    "message": "Расширение для Chrome для создания, редактирования и управления локаторами элементов на веб-страницах в формате JSON.",
-    "description": "The description of the extension."
+  "extensionDescription": {
+    "message": "Создаёт чёткие и структурированные описания компонентов компьютера",
+    "description": "Описание расширения"
   },
-  "popupTitle": {
-    "message": "Редактор Локаторов",
-    "description": "Title for the popup window."
+  "contextMenuTitle": {
+    "message": "Сформировать предложение цены",
+    "description": "Название пункта контекстного меню"
   },
-  "openEditorBtn": {
-    "message": "Открыть редактор",
-    "description": "Button text in the popup to open the main editor UI."
+  "apiKeyLabel": {
+    "message": "API-ключ Google Gemini",
+    "description": "Подпись для поля ввода API-ключа"
   },
-  "headerImportBtn": {
-    "message": "Импорт",
-    "description": "Button text for importing a JSON file."
+  "modelLabel": {
+    "message": "Модель",
+    "description": "Подпись для выбора модели"
   },
-  "headerImportTitle": {
-    "message": "Импортировать JSON",
-    "description": "Tooltip for the import button."
+  "saveButton": {
+    "message": "Сохранить",
+    "description": "Текст кнопки сохранения"
   },
-  "headerExportBtn": {
-    "message": "Экспорт",
-    "description": "Button text for exporting a JSON file."
+  "statusNoApiKey": {
+    "message": "Пожалуйста, введите ваш API-ключ",
+    "description": "Сообщение, когда API-ключ не введён"
   },
-  "headerExportTitle": {
-    "message": "Экспортировать JSON",
-    "description": "Tooltip for the export button."
+  "indicatorAnalyzing": {
+    "message": "Формируется ваше предложение цены…",
+    "description": "Сообщение во время анализа"
   },
-  "sidebarSupplierPrefix": {
-    "message": "Префикс поставщика",
-    "description": "Label for the supplier prefix input field."
+  "errorFetchContent": {
+    "message": "Не удалось получить содержимое страницы",
+    "description": "Ошибка при получении содержимого страницы"
   },
-  "sidebarNewLocatorBtn": {
-    "message": "Новый локатор",
-    "description": "Button text to create a new locator."
+  "errorPageTooShort": {
+    "message": "Страница содержит слишком мало контента",
+    "description": "Ошибка, когда страница слишком короткая"
   },
-  "sidebarLocatorsHeading": {
-    "message": "Локаторы",
-    "description": "Heading for the list of locators."
-  },
-  "sidebarDeleteLocatorTitle": {
-    "message": "Удалить $key$",
-    "description": "Tooltip for the delete locator button.",
+  "errorApi": {
+    "message": "Ошибка API: $error$",
+    "description": "Общее сообщение об ошибке API",
     "placeholders": {
-      "key": {
+      "error": {
         "content": "$1",
-        "example": "product_name"
+        "example": "Неверный API-ключ"
       }
     }
   },
-  "formCreateTitle": {
-    "message": "Создать новый локатор",
-    "description": "Title of the form when creating a new locator."
+  "price": {
+    "message": "Цена",
+    "description": "Цена сборки"
   },
-  "formEditTitle": {
-    "message": "Редактирование: $key$",
-    "description": "Title of the form when editing an existing locator.",
-    "placeholders": {
-      "key": {
-        "content": "$1",
-        "example": "product_name"
-      }
-    }
+  "totalPriceLabel": {
+    "message": "Итоговая цена:",
+    "description": "Подпись для итоговой цены в предложении"
   },
-  "formSaveChangesBtn": {
-    "message": "Сохранить изменения",
-    "description": "Button text to save the locator form."
+  "saveOfferButton": {
+    "message": "Сохранить предложение",
+    "description": "Текст кнопки 'Сохранить предложение'"
   },
-  "formLabelKey": {
-    "message": "Ключ локатора",
-    "description": "Label for the locator key input field."
-  },
-  "formLabelSelector": {
-    "message": "Селектор",
-    "description": "Label for the selector textarea field."
-  },
-  "formLabelDescription": {
-    "message": "Описание",
-    "description": "Label for the locator description field."
-  },
-  "formLabelFindBy": {
-    "message": "Метод поиска",
-    "description": "Label for the 'Find By' strategy dropdown."
-  },
-  "formLabelAttribute": {
-    "message": "Атрибут для извлечения",
-    "description": "Label for the 'Attribute to Get' input field."
-  },
-  "formLabelIfList": {
-    "message": "При нахождении списка",
-    "description": "Label for the 'If List Found' strategy dropdown."
-  },
-  "formLabelMultiSelectorStrategy": {
-    "message": "Стратегия для нескольких селекторов",
-    "description": "Label for the multiple selector strategy input field."
-  },
-  "formLabelTimeout": {
-    "message": "Тайм-аут (мс)",
-    "description": "Label for the timeout input field."
-  },
-  "formLabelTimeoutEvent": {
-    "message": "Тип события для тайм-аута",
-    "description": "Label for the timeout event type input field."
-  },
-  "formLabelMandatory": {
-    "message": "Обязательный",
-    "description": "Label for the 'Mandatory' checkbox."
-  },
-  "formLabelIsEvent": {
-    "message": "Событие?",
-    "description": "Label for the 'Is Event?' checkbox."
-  },
-  "formPlaceholderKey": {
-    "message": "например, product_name",
-    "description": "Placeholder text for the locator key input."
-  },
-  "formPlaceholderDescription": {
-    "message": "Краткое описание этого локатора",
-    "description": "Placeholder text for the locator description."
-  },
-  "formErrorKeyEmpty": {
-    "message": "Ключ локатора не может быть пустым.",
-    "description": "Error message when the locator key is left empty."
-  },
-  "formCopyTooltip": {
-    "message": "Копировать селектор в буфер обмена",
-    "description": "Tooltip for the copy button next to the selector field."
-  },
-  "emptyStateSelectLocatorTitle": {
-    "message": "Выберите локатор для редактирования",
-    "description": "Main title in the empty state view."
-  },
-  "emptyStateSelectLocatorSubtitle": {
-    "message": "или создайте новый.",
-    "description": "Subtitle in the empty state view."
-  },
-  "emptyStateNoLocatorsTitle": {
-    "message": "Локаторы не найдены",
-    "description": "Title when the list of locators is completely empty."
-  },
-  "emptyStateNoLocatorsSubtitle": {
-    "message": "Нажмите \"Новый локатор\", чтобы начать.",
-    "description": "Subtitle when the list of locators is completely empty."
-  },
-  "alertInvalidJson": {
-    "message": "Неверный JSON файл.",
-    "description": "Alert message shown when a user uploads a malformed JSON file."
-  },
-  "alertImportSuccess": {
-    "message": "Файл успешно импортирован!",
-    "description": "Alert message shown after a successful JSON file import."
-  },
-  "confirmDeleteLocator": {
-    "message": "Вы уверены, что хотите удалить локатор \"$key$\"?",
-    "description": "Confirmation message before deleting a locator.",
-    "placeholders": {
-      "key": {
-        "content": "$1",
-        "example": "product_name"
-      }
-    }
+  "changeImageButton": {
+    "message": "Изменить картинку",
+    "description": "Текст кнопки 'Изменить картинку' в футере"
   }
 }

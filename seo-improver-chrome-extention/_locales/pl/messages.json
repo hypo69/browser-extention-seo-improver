@@ -1,35 +1,35 @@
 {
   "extensionName": {
-    "message": "SEOai",
+    "message": "Oferta Cenowa Kazarinov",
     "description": "Nazwa rozszerzenia"
   },
   "extensionDescription": {
-    "message": "Tworzyć kreatywną treść z informacji na stronie",
+    "message": "Tworzy przejrzyste i uporządkowane opisy komponentów komputerowych",
     "description": "Opis rozszerzenia"
   },
   "contextMenuTitle": {
-    "message": "Stwórz ofertę cenową",
-    "description": "Tytuł elementu menu kontekstowego"
+    "message": "Utwórz ofertę cenową",
+    "description": "Tytuł elementu w menu kontekstowym"
   },
   "apiKeyLabel": {
     "message": "Klucz API Google Gemini",
-    "description": "Etykieta dla pola wprowadzania klucza API"
+    "description": "Etykieta pola dla klucza API"
   },
   "modelLabel": {
     "message": "Model",
     "description": "Etykieta wyboru modelu"
   },
   "saveButton": {
-    "message": "Zapisać",
-    "description": "Tekst przycisku Zapisz"
+    "message": "Zapisz",
+    "description": "Tekst przycisku zapisu"
   },
   "statusNoApiKey": {
-    "message": "Proszę wprowadzić swój klucz API",
+    "message": "Proszę wprowadzić klucz API",
     "description": "Komunikat, gdy klucz API nie został wprowadzony"
   },
   "indicatorAnalyzing": {
-    "message": "Twoja oferta cenowa jest w trakcie tworzenia…",
-    "description": "Komunikat podczas analizy"
+    "message": "Tworzenie Twojej oferty cenowej…",
+    "description": "Komunikat wyświetlany podczas analizy"
   },
   "errorFetchContent": {
     "message": "Nie udało się pobrać zawartości strony",
@@ -37,7 +37,7 @@
   },
   "errorPageTooShort": {
     "message": "Strona zawiera zbyt mało treści",
-    "description": "Błąd, gdy strona jest za krótka"
+    "description": "Błąd, gdy strona jest zbyt krótka"
   },
   "errorApi": {
     "message": "Błąd API: $error$",
@@ -48,21 +48,5 @@
         "example": "Nieprawidłowy klucz API"
       }
     }
-  },
-  "price": {
-    "message": "Cena",
-    "description": "Cena kompilacji"
-  },
-  "totalPriceLabel": {
-    "message": "Całkowita cena:",
-    "description": "Etykieta dla ceny całkowitej w ofercie"
-  },
-  "saveOfferButton": {
-    "message": "Zapisz ofertę",
-    "description": "Tekst przycisku 'Zapisz ofertę'"
-  },
-  "changeImageButton": {
-    "message": "Zmień obraz",
-    "description": "Tekst przycisku 'Zmień obraz' w stopce"
   }
 }
