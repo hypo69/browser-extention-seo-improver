@@ -3,57 +3,95 @@
 // -*- coding: utf-8 -*-
 
 /**
- * Модуль управления настройками расширения
- * =========================================
- * Интерфейс для установки API ключа и выбора модели
+ * Скрипт для popup окна расширения
+ * ==================================
+ * Обрабатывает клик по кнопке "Открыть редактор"
  */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openEditorBtn = document.getElementById('openEditor');
+    
+    if (openEditorBtn) {
+        openEditorBtn.addEventListener('click', async () => {
+            try {
+                const [activeTab] = await chrome.tabs.query({ 
+                    active: true, 
+                    currentWindow: true 
+                });
+                
+                if (!activeTab) {
+                    console.error('Активная вкладка не найдена');
+                    return;
+                }
+
+                // Проверка доступности страницы
+                if (isRestrictedPage(activeTab.url)) {
+                    alert('Редактор локаторов недоступен на этой странице.\n\nОткройте обычную веб-страницу.');
+                    return;
+                }
+
+                try {
+                    // Попытка отправить сообщение (если скрипт уже внедрен)
+                    await chrome.tabs.sendMessage(activeTab.id, { 
+                        action: 'openLocatorModal' 
+                    });
+                } catch (err) {
+                    // Если content script не загружен, загружаем его
+                    console.log('Content script не загружен, внедряем...');
+                    
+                    await chrome.scripting.insertCSS({
+                        target: { tabId: activeTab.id },
+                        files: ['editor.css']
+                    });
+                    
+                    await chrome.scripting.executeScript({
+                        target: { tabId: activeTab.id },
+                        files: ['editor.js'],
+                        world: 'ISOLATED'  // Изолированный мир для избежания конфликтов
+                    });
+                    
+                    // Небольшая задержка для инициализации скрипта
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                    
+                    // Повторная попытка отправить сообщение
+                    await chrome.tabs.sendMessage(activeTab.id, { 
+                        action: 'openLocatorModal' 
+                    });
+                }
+                
+                // Закрываем popup после успешного открытия
+                window.close();
+                
+            } catch (ex) {
+                console.error('Ошибка открытия редактора:', ex);
+                alert('Не удалось открыть редактор локаторов.\n\nПроверьте консоль для деталей.');
+            }
+        });
+    }
+});
 
 /**
- * Инициализация popup при загрузке
- * Функция загружает сохраненные настройки
+ * Проверка, является ли страница ограниченной
+ * Функция проверяет URL на наличие системных протоколов
+ * 
+ * Args:
+ *     url (string): URL страницы
+ * 
+ * Returns:
+ *     boolean: true если страница ограничена
  */
-document.addEventListener('DOMContentLoaded', async () => {
-    const { geminiModel, geminiApiKey } = await chrome.storage.sync.get(['geminiModel', 'geminiApiKey']);
-
-    if (geminiModel) {
-        document.getElementById('model').value = geminiModel;
+function isRestrictedPage(url) {
+    if (!url) {
+        return true;
     }
-
-    if (geminiApiKey) {
-        document.getElementById('apiKey').value = geminiApiKey;
-    }
-
-    // Обработчик для кнопки логов
-    document.getElementById('openLogs').addEventListener('click', () => {
-        chrome.tabs.create({ url: chrome.runtime.getURL('debug.html') });
-    });
-
-    // ▼▼▼ ДОБАВЛЕННЫЙ КОД ▼▼▼
-    // Обработчик для кнопки редактора локаторов
-    document.getElementById('openEditor').addEventListener('click', () => {
-        // Открываем страницу editor.html в новой вкладке
-        chrome.tabs.create({ url: chrome.runtime.getURL('editor.html') });
-    });
-    // ▲▲▲ КОНЕЦ ДОБАВЛЕНИЯ ▲▲▲
-
-    // Обработчик сохранения настроек
-    document.getElementById('save').addEventListener('click', async () => {
-        const apiKey = document.getElementById('apiKey').value.trim();
-        const model = document.getElementById('model').value;
-
-        if (!apiKey) {
-            alert('Пожалуйста, введите API ключ');
-            return;
-        }
-
-        await chrome.storage.sync.set({ geminiApiKey: apiKey, geminiModel: model });
-
-        const saveButton = document.getElementById('save');
-        saveButton.textContent = 'Сохранено!';
-
-        setTimeout(() => {
-            saveButton.textContent = 'Сохранить';
-            window.close();
-        }, 1000);
-    });
-});
+    
+    const restrictedProtocols = [
+        'chrome://',
+        'edge://',
+        'about:',
+        'chrome-extension://',
+        'chrome-devtools://'
+    ];
+    
+    return restrictedProtocols.some(protocol => url.startsWith(protocol));
+}

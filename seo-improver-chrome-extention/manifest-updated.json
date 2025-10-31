@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "SEO Improver - Locator Editor (Modal)",
+  "version": "1.1.0",
+  "description": "Редактор локаторов с модальным окном поверх страницы",
+  "default_locale": "en",
+  
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting",
+    "notifications"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "action": {
+    "default_popup": "popup.html"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "locators/*.json",
+        "editor.css",
+        "editor.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

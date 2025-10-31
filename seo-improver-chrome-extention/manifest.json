@@ -1,24 +1,41 @@
 {
   "manifest_version": 3,
-  "name": "__MSG_extensionName__",
-  "description": "__MSG_extensionDescription__",
-  "version": "1.0.1",
-  "default_locale": "ru",
+  "name": "Locator Editor Pro",
+  "version": "2.0.0",
+  "description": "Профессиональный редактор локаторов для веб-тестирования с облачной синхронизацией",
+  "default_locale": "en",
   "permissions": [
-    "contextMenus",
     "activeTab",
-    "storage",
+    "contextMenus",
     "scripting",
+    "storage",
+    "identity",
     "notifications"
   ],
   "host_permissions": [
-    "https://generativelanguage.googleapis.com/"
+    "https://srv378106.hstgr.cloud/*",
+    "https://accounts.google.com/*",
+    "https://www.googleapis.com/*"
   ],
+  "oauth2": {
+    "client_id": "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Locator Editor Pro"
   },
   "icons": {
     "16": "icons/icon16.png",
@@ -26,27 +43,7 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "content_scripts": [
-    {
-      "matches": [ "<all_urls>" ],
-      "js": [ "content.js" ],
-      "run_at": "document_idle"
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "_locales//*",
-        "image-manifest.json",
-        "locales-manifest.json",
-        "locators//*",
-        "preview-offer.html",
-        "assets/images//*",
-        "locator-editor/editor.html",
-        "locator-editor/editor.css",
-        "locator-editor/editor.js"
-      ],
-      "matches": [ "<all_urls>" ]
-    }
-  ]
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
 }

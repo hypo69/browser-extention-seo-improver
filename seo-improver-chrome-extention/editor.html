@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор локаторов</title>
+</head>
+<body>
+    <!-- Этот HTML файл не используется напрямую в модальной версии -->
+    <!-- Вместо него используется динамическое создание через editor.js -->
+    <!-- Оставлен для совместимости и справки -->
+    
+    <div id="locator-editor-overlay">
+        <div id="locator-editor-modal">
+            <!-- Заголовок -->
+            <div class="locator-modal-header">
+                <div class="locator-modal-title">
+                    <h1>⚙️ Редактор локаторов</h1>
+                    <h2 id="locator-domain-name">Загрузка...</h2>
+                </div>
+                <div class="locator-modal-actions">
+                    <button id="locator-save-btn" class="locator-modal-btn" title="Сохранить изменения">
+                        💾 Сохранить
+                    </button>
+                    <button id="locator-export-btn" class="locator-modal-btn" title="Экспортировать конфигурацию">
+                        📥 Экспорт
+                    </button>
+                    <button id="locator-reload-btn" class="locator-modal-btn" title="Перезагрузить из файла">
+                        🔄 Сброс
+                    </button>
+                    <button id="locator-close-btn" class="locator-modal-close" title="Закрыть">
+                        ✕
+                    </button>
+                </div>
+            </div>
+
+            <!-- Основной контент -->
+            <div class="locator-modal-body">
+                <!-- Список ключей -->
+                <aside class="locator-sidebar" id="locator-keys-list">
+                    <div class="locator-editor-placeholder">
+                        Загрузка локаторов...
+                    </div>
+                </aside>
+
+                <!-- Панель редактирования -->
+                <section class="locator-editor-panel" id="locator-editor-panel">
+                    <div class="locator-editor-placeholder">
+                        <p>Выберите элемент из списка слева для редактирования</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Футер -->
+            <div class="locator-modal-footer">
+                <div class="locator-status-bar">
+                    <span class="locator-status-text" id="locator-status-text">Готов к работе</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="editor.js"></script>
+</body>
+</html>
